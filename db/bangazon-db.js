@@ -26,5 +26,8 @@ db.run('CREATE TABLE IF NOT EXISTS order_products (order_product_id INTEGER PRIM
 
 // hr side
 
+// create departments table
+db.run('CREATE TABLE IF NOT EXISTS departments (department_id INTEGER PRIMARY KEY, name TEXT, supervisor_id TEXT)');
+
 // create employees table
 db.run('CREATE TABLE IF NOT EXISTS employees (employee_id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT, FOREIGN KEY (department_id) REFERENCES departments(department_id))');
