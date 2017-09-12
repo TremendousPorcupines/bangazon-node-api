@@ -9,3 +9,5 @@ db.run('CREATE TABLE IF NOT EXISTS users (user_id INTEGER PRIMARY KEY, first_nam
 // create payment_types table
 db.run('CREATE TABLE IF NOT EXISTS payment_types (payment_type_id INTEGER PRIMARY KEY, name TEXT, account_number TEXT, FOREIGN KEY (user_id) REFERENCES users(user_id))')
 
+// create orders table
+db.run('CREATE TABLE IF NOT EXISTS orders (order_id INTEGER PRIMARY KEY, FOREIGN KEY (user_id) REFERENCES users(user_id), FOREIGN KEY (payment_type_id) REFERENCES payment_types(payment_type_id))')
