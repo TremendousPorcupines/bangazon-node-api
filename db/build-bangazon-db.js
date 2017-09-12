@@ -70,7 +70,7 @@ db.run('CREATE TABLE IF NOT EXISTS orders (order_id INTEGER PRIMARY KEY, user_id
 db.run('CREATE TABLE IF NOT EXISTS product_types (product_type_id INTEGER PRIMARY KEY, name TEXT)');
 
 // create products table
-db.run('CREATE TABLE IF NOT EXISTS products (product_id INTEGER PRIMARY KEY, name TEXT, price TEXT, FOREIGN KEY (user_id) REFERENCES users(user_id), FOREIGN KEY (product_type_id) REFERENCES product_types(product_type_id))');
+db.run('CREATE TABLE IF NOT EXISTS products (product_id INTEGER PRIMARY KEY, name TEXT, price TEXT, user_id INTEGER, product_type_id INTEGER, FOREIGN KEY (user_id) REFERENCES users(user_id), FOREIGN KEY (product_type_id) REFERENCES product_types(product_type_id))');
 
 // create orders_products table
 db.run('CREATE TABLE IF NOT EXISTS orders_products (order_product_id INTEGER PRIMARY KEY, FOREIGN KEY (order_id) REFERENCES orders(order_id), FOREIGN KEY (product_id) REFERENCES products(product_id))');
