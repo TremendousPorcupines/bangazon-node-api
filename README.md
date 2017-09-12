@@ -13,3 +13,4 @@ You will need to run `$ npm install` in your terminal to install the following d
   mocha
   chai
   chai-http
+  faker
