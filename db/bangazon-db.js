@@ -3,6 +3,8 @@
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('bangazon.sqlite', (err) => console.log('Connected'));
 
+// business side
+
 // create users table
 db.run('CREATE TABLE IF NOT EXISTS users (user_id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT, address TEXT, city TEXT, zip_code TEXT, phone TEXT, date_created TEXT, last_login TEXT)');
 
@@ -21,3 +23,8 @@ db.run('CREATE TABLE IF NOT EXISTS products (product_id INTEGER PRIMARY KEY, nam
 // create order_products table
 db.run('CREATE TABLE IF NOT EXISTS order_products (order_product_id INTEGER PRIMARY KEY, FOREIGN KEY (order_id) REFERENCES orders(order_id), FOREIGN KEY (product_id) REFERENCES products(product_id))');
 
+
+// hr side
+
+// create employees table
+db.run('CREATE TABLE IF NOT EXISTS employees (employee_id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT, FOREIGN KEY (department_id) REFERENCES departments(department_id))');
