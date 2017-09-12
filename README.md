@@ -14,3 +14,4 @@ You will need to run `$ npm install` in your terminal to install the following d
   chai
   chai-http
   faker
+  morgan
