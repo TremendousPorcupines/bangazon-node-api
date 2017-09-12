@@ -14,3 +14,6 @@ db.run('CREATE TABLE IF NOT EXISTS orders (order_id INTEGER PRIMARY KEY, FOREIGN
 
 // create product_types table
 db.run('CREATE TABLE IF NOT EXISTS product_types (product_type_id INTEGER PRIMARY KEY, name TEXT)');
+
+// create products table
+db.run('CREATE TABLE IF NOT EXISTS products (product_id INTEGER PRIMARY KEY, name TEXT, price TEXT, FOREIGN KEY (user_id) REFERENCES users(user_id), FOREIGN KEY (product_type_id) REFERENCES product_types(product_type_id))');
