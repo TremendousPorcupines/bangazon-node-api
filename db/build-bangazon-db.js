@@ -64,7 +64,7 @@ db.run('CREATE TABLE IF NOT EXISTS users (user_id INTEGER PRIMARY KEY, first_nam
 db.run('CREATE TABLE IF NOT EXISTS payment_types (payment_type_id INTEGER PRIMARY KEY, name TEXT, account_number TEXT, user_id INTEGER, FOREIGN KEY (user_id) REFERENCES users(user_id))');
 
 // create orders table
-db.run('CREATE TABLE IF NOT EXISTS orders (order_id INTEGER PRIMARY KEY, FOREIGN KEY (user_id) REFERENCES users(user_id), FOREIGN KEY (payment_type_id) REFERENCES payment_types(payment_type_id))');
+db.run('CREATE TABLE IF NOT EXISTS orders (order_id INTEGER PRIMARY KEY, user_id INTEGER, payment_type_id INTEGER, FOREIGN KEY (user_id) REFERENCES users(user_id), FOREIGN KEY (payment_type_id) REFERENCES payment_types(payment_type_id))');
 
 // create product_types table
 db.run('CREATE TABLE IF NOT EXISTS product_types (product_type_id INTEGER PRIMARY KEY, name TEXT)');
