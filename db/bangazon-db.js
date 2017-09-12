@@ -34,3 +34,6 @@ db.run('CREATE TABLE IF NOT EXISTS employees (employee_id INTEGER PRIMARY KEY, f
 
 // create training_programs table
 db.run('CREATE TABLE IF NOT EXISTS training_programs (training_program_id INTEGER PRIMARY KEY, name TEXT, start_date TEXT, end_date TEXT, number_enrolled INTEGER)');
+
+// create employees_training_programs table
+db.run('CREATE TABLE IF NOT EXISTS employees_training_programs (employee_training_program_id INTEGER PRIMARY KEY, FOREIGN KEY (employee_id) REFERENCES employees(employee_id), FOREIGN KEY (training_program_id) REFERENCES training_programs(training_program_id))');
