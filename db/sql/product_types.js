@@ -2,4 +2,4 @@
 
 const { product_types } = require('../populate-faker-data');
 
-console.log('sql/product_types', product_types)
+// console.log('sql/product_types', product_types)
