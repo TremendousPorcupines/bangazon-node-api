@@ -6,9 +6,9 @@ const populateProductTypes = () => {
   const { product_types } = require('../populate-faker-data');
   return new Promise( (resolve, reject) => {
     const db = new sqlite3.Database('db/bangazon.sqlite', (err) => {
-      console.log('Connected product_type');
+      console.log('Connected product_types');
       product_types.forEach((type) => {
-        db.run(`INSERT INTO product_type VALUES(
+        db.run(`INSERT INTO product_types VALUES(
           NULL,
           "${type.name}")`
         )
