@@ -1,5 +1,21 @@
 'use strict';
 
-const { product_types } = require('../populate-faker-data');
+const sqlite3 = require('sqlite3').verbose();
 
-// console.log('sql/product_types', product_types)
+const populateProductTypes = () => {
+  const { product_types } = require('../populate-faker-data');
+  return new Promise( (resolve, reject) => {
+    const db = new sqlite3.Database('db/bangazon.sqlite', (err) => {
+      console.log('Connected product_type');
+      product_types.forEach((type) => {
+        db.run(`INSERT INTO product_type VALUES(
+          NULL,
+          "${type.name}")`
+        )
+      })
+      resolve();
+    });
+  })
+};
+
+module.exports = { populateProductTypes }
