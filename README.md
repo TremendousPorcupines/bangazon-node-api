@@ -15,3 +15,6 @@ You will need to run `$ npm install` in your terminal to install the following d
   chai-http
   faker
   morgan
+
+###Database:
+  To instantiate a new database you will need to run `$ npm run db:reset` in your terminal.
