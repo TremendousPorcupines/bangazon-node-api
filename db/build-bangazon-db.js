@@ -1,7 +1,7 @@
 'use strict';
 
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('bangazon.sqlite', (err) => console.log('Connected'));
+const db = new sqlite3.Database('db/bangazon.sqlite', (err) => console.log('Connected'));
 
 // functions to drop tables if they exist to reset db
 const dropUsersTable = () => {
