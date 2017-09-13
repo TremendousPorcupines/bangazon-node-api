@@ -10,6 +10,7 @@ const { generateUsers } = require('./faker/users');
 // const { generatePaymentTypes } = require('./payment_types');
 
 module.exports.users = generateUsers();
+module.exports.product_types = productTypes;
 // let products = generateProducts(productTypes.length, users.length);
 // let computers = generateComputers();
 // let payment_types = generatePaymentTypes(users.length);
