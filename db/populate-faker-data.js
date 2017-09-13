@@ -2,16 +2,16 @@
 
 const { productTypes } = require('./faker/product_types');
 const { generateUsers } = require('./faker/users');
-// const { generateProducts } = require('./products');
+const { generateProducts } = require('./faker/products');
 // const { generateDepartments } = require('./departments');
 // const { generateComputers } = require('./computers');
 // const { generateTrainingPrograms } = require('./training_programs');
 // const { generateOrders } = require('./orders');
 // const { generatePaymentTypes } = require('./payment_types');
 
-module.exports.users = generateUsers();
-module.exports.product_types = productTypes;
-// let products = generateProducts(productTypes.length, users.length);
+let users = generateUsers();
+let product_types = productTypes;
+let products = generateProducts(productTypes.length, users.length);
 // let computers = generateComputers();
 // let payment_types = generatePaymentTypes(users.length);
 // let employees = generateEmployees(department.length);
@@ -21,3 +21,5 @@ module.exports.product_types = productTypes;
 // let order_products(orders.length, products.length);
 // let employee_training_programs(employees.length, programs.length);
 // let employee_computers(employees.length, computers.length);
+
+module.exports = { users, product_types, products }
