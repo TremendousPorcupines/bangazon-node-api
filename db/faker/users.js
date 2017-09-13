@@ -17,15 +17,15 @@ module.exports.generateUsers = () => {
     let lastLogin = faker.date.recent();
 
     users.push({
-      "firstName": firstName,
-      "lastName": lastName,
+      "first_name": firstName,
+      "last_name": lastName,
       "address": address,
       "city": city,
       "state": state,
-      "zipCode": zipCode,
+      "zip_code": zipCode,
       "phone": phone,
-      "dateCreated": dateCreated,
-      "lastLogin": lastLogin
+      "date_created": dateCreated,
+      "last_login": lastLogin
     });
   }
 

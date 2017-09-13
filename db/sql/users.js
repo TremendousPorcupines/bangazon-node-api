@@ -1,5 +1,41 @@
 'use strict';
 
-const { users } = require('../populate-faker-data');
+const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database('db/bangazon.sqlite');
 
-// console.log('sql/users', users)
+const populateUsers = () => {
+  const { users } = require('../populate-faker-data');
+  return new Promise( (resolve, reject) => {
+    const db = new sqlite3.Database('db/bangazon.sqlite', (err) => {
+    console.log('Connected user');
+      users.forEach((user) => {
+        db.run(`INSERT INTO user VALUES(
+          NULL,
+          "${user.first_name}",
+          "${user.last_name}",
+          "${user.address}",
+          "${user.city}",
+          "${user.state}",
+          "${user.zip_code}",
+          "${user.phone}",
+          "${user.date_created}",
+          "${user.last_login}")`
+        )
+      })
+      resolve();
+    })
+  });
+};
+
+const getAllUsers = () => {
+  return new Promise( (resolve, reject) => {
+    db.all('SELECT * FROM user', (err, users) => {
+      if (err) {
+        return console.log('err', err.toString());
+      }
+      resolve(users);
+    });
+  })
+};
+
+module.exports = { populateUsers, getAllUsers }
