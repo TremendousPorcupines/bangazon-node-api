@@ -3,58 +3,34 @@
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('db/bangazon.sqlite', (err) => console.log('Connected'));
 
+// array of table names in db
+const tableNames = [
+  'users', 
+  'payment_types', 
+  'orders', 
+  'product_types', 
+  'products', 
+  'order_products',
+  'departments',
+  'employees',
+  'training_programs',
+  'employees_training_programs',
+  'computers',
+  'employees_computers'
+];
+
 // functions to drop tables if they exist to reset db
-const dropUsersTable = () => {
-  db.run(`DROP TABLE IF EXISTS users`);
+const dropAllTables = (tableArray) => {
+  tableArray.forEach((table) => {
+    db.run(`DROP TABLE IF EXISTS '${table}'`);
+  });
 };
-const dropPaymentTypesTable = () => {
-  db.run(`DROP TABLE IF EXISTS payment_types`);
-};
-const dropOrdersTable = () => {
-  db.run(`DROP TABLE IF EXISTS orders`);
-};
-const dropProductTypesTable = () => {
-  db.run(`DROP TABLE IF EXISTS product_types`);
-};
-const dropProductsTable = () => {
-  db.run(`DROP TABLE IF EXISTS products`);
-};
-const dropOrdersProductsTable = () => {
-  db.run(`DROP TABLE IF EXISTS order_products`);
-};
-const dropDepartmentsTable = () => {
-  db.run(`DROP TABLE IF EXISTS departments`);
-};
-const dropEmployeesTable = () => {
-  db.run(`DROP TABLE IF EXISTS employees`);
-};
-const dropTrainingProgramsTable = () => {
-  db.run(`DROP TABLE IF EXISTS training_programs`);
-};
-const dropEmployeesTrainingProgramsTable = () => {
-  db.run(`DROP TABLE IF EXISTS employees_training_programs`);
-};
-const dropComputersTable = () => {
-  db.run(`DROP TABLE IF EXISTS computers`);
-};
-const dropEmployeesComputersTable = () => {
-  db.run(`DROP TABLE IF EXISTS employees_computers`);
-};
-// invoke table drop functions for db reset
-dropUsersTable();
-dropPaymentTypesTable();
-dropOrdersTable();
-dropProductTypesTable();
-dropProductsTable();
-dropOrdersProductsTable();
-dropDepartmentsTable();
-dropEmployeesTable();
-dropTrainingProgramsTable();
-dropEmployeesTrainingProgramsTable();
-dropComputersTable();
-dropEmployeesComputersTable();
+
+// drops all tables
+dropAllTables(tableNames);
 
 
+// table creation
 // business side
 
 // create users table
