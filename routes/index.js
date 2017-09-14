@@ -7,8 +7,10 @@ const customers = require('./users-route');
 
 router.get('/', (req, res) => {
   res.json({
-    "user": "/api/v1/user",
-    "users": "/api/v1/users"
+    "getUserById": "/api/v1/user/:<user_id>",
+    "getAllUsers": "/api/v1/users",
+    "addUser": "/api/v1/user/new",
+    "editUser": "/api/v1/user/edit"
   });
 });
 
