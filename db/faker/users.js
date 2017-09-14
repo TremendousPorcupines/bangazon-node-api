@@ -1,6 +1,6 @@
 'use strict';
 
-const faker = require('faker')
+const faker = require('faker');
 
 module.exports.generateUsers = () => {
   let users = [];
@@ -30,4 +30,4 @@ module.exports.generateUsers = () => {
   }
 
   return users;
-}
+};

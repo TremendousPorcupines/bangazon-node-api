@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "db:reset": "node db/build-bangazon-db",
+    "db:users": "node db/sql/users.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
