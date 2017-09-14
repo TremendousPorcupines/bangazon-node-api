@@ -23,6 +23,9 @@ module.exports.addNewUser = ({body}, res, next) => {
   });
 };
 
-module.exports.editUser = (req, res, next) => {
-  ;
-;}
+module.exports.editUser = ({body}, res, next) => {
+  User.edit(body)
+  .then((user) => {
+    res.status(200).json(user);
+  });
+};
