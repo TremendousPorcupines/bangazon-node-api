@@ -3,18 +3,18 @@
 ### Application Dependencies:
 You will need to run `$ npm install` in your terminal to install the following dependencies -
 
-*Dependencies:*
-  sqlite3
-  express
-  body-parser
-  dotenv
+**_Dependencies:_**  
+  sqlite3  
+  express  
+  body-parser  
+  dotenv  
 
-*Dev Dependencies:*
-  mocha
-  chai
-  chai-http
-  faker
-  morgan
+**_Dev Dependencies:_**  
+  mocha  
+  chai  
+  chai-http  
+  faker  
+  morgan  
 
 ### Database:
   To instantiate a new database you will need to run `$ npm run db:reset` in your terminal.
