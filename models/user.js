@@ -23,8 +23,13 @@ const User = {
     });
   },
   // method for adding a user
-  addOne: () => {
-    
+  addOne: (user) => {
+    return new Promise((resolve, reject) => {
+      db.run(`INSERT INTO users (null, '${user.firstName}', '${user.lastName}', '${user.address}', '${user.city}', '${user.zipcode}', '${user.phone}', '${user.dateCreated}', '${user.lastLogin}')`), (err, user) => {
+        if(err) return reject(err);
+        resolve(users);
+      };
+    })
   },
   // method for updating a user's info
   edit: () => {
