@@ -16,8 +16,11 @@ module.exports.getAllUsers = (req, res, next) => {
   });
 };
 
-module.exports.addNewUser = (req, res, next) => {
-  ;
+module.exports.addNewUser = ({body}, res, next) => {
+  User.addOne(body)
+  .then((user) => {
+    res.status(200).json(user);
+  });
 };
 
 module.exports.editUser = (req, res, next) => {
