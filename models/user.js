@@ -25,16 +25,16 @@ const User = {
   // method for adding a user
   addOne: (user) => {
     return new Promise((resolve, reject) => {
-      db.run(`INSERT INTO users (null, '${user.firstName}', '${user.lastName}', '${user.address}', '${user.city}', '${user.zipcode}', '${user.phone}', '${user.dateCreated}', '${user.lastLogin}')`), (err, user) => {
+      db.run(`INSERT INTO users VALUES(null, "${user.firstName}", "${user.lastName}", "${user.address}", "${user.city}", "${user.zipcode}", "${user.phone}", "${user.dateCreated}", "${user.lastLogin}")`, (err) => {
         if(err) return reject(err);
-        resolve(users);
-      };
+        resolve();
+      });
     })
   },
   // method for updating a user's info
   edit: (user) => {
     return new Promise((resolve, reject) => {
-      db.run(`UPDATE users (null, '${user.firstName}', '${user.lastName}', '${user.address}', '${user.city}', '${user.zipcode}', '${user.phone}', '${user.dateCreated}', '${user.lastLogin}')`), (err, user) => {
+      db.run(`UPDATE users ('${user.user_id}', '${user.firstName}', '${user.lastName}', '${user.address}', '${user.city}', '${user.zipcode}', '${user.phone}', '${user.dateCreated}', '${user.lastLogin}')`), (err, user) => {
         if(err) return reject(err);
         resolve(users);
       };
