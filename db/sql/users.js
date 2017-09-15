@@ -1,7 +1,9 @@
 'use strict';
 
 const sqlite3 = require('sqlite3').verbose();
-const { users } = require('../populate-faker-data');
+const { generateUsers } = require('../faker/users');
+
+let users = generateUsers();
 
 const db = new sqlite3.Database('db/bangazon.sqlite', (err) => {
   console.log('Connected users');
