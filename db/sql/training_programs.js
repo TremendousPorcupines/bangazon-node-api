@@ -8,7 +8,6 @@ let training_programs = generateTrainingPrograms();
 const db = new sqlite3.Database('db/bangazon.sqlite', (err) => {
   console.log('Connected training_programs');
   training_programs.forEach((program) => {
-    console.log(program)
     db.run(`INSERT INTO training_programs VALUES(
       NULL,
       "${program.name}",
