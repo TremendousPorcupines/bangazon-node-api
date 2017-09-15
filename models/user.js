@@ -7,7 +7,7 @@ const User = {
   // method for getting one user
   getOne: (user_id) => {
     return new Promise( (resolve, reject) => {
-      db.get(`SELECT ${user_id} FROM users`, (err, user) => {
+      db.get(`SELECT * FROM users WHERE user_id = ${user_id}`, (err, user) => {
         if (err) return reject(err);
         resolve(user);
       });
