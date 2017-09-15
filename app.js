@@ -1,15 +1,15 @@
 'use strict';
 
 require('dotenv').config();
-const express = require('express');
+let express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const routes = require('./routes/');
 
-const app = express();
+let app = express();
 
 //middleware and routing
-app.use(bodyParser.json);
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/api/v1/', routes);
@@ -21,7 +21,6 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-//default to production
 app.use((err,req,res,next) => {
     console.log("error", err);
     res.status(err.status || 500);

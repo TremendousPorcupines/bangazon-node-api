@@ -1,9 +1,9 @@
 `use strict`;
 
 const {Router} = require('express');
-const Router = Router();
+const router = Router();
 
-const customers = require('./users-route');
+router.use( require('./users-route'));
 
 router.get('/', (req, res) => {
   res.json({
@@ -14,4 +14,4 @@ router.get('/', (req, res) => {
   });
 });
 
-module.exports = router
+module.exports = router;
