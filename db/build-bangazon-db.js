@@ -10,7 +10,7 @@ const tableNames = [
   'orders', 
   'product_types', 
   'products', 
-  'order_products',
+  'orders_products',
   'departments',
   'employees',
   'training_programs',
