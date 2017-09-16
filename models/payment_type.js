@@ -4,7 +4,7 @@ const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('./db/bangazon.sqlite');
 
 const Payment_Type = {
-  // method for getting one user
+  // method for getting one payment type
   getOne: (payment_type_id) => {
     return new Promise( (resolve, reject) => {
       db.get(`SELECT * FROM payment_types WHERE payment_type_id = ${payment_type_id}`, (err, payment_type) => {
@@ -13,7 +13,7 @@ const Payment_Type = {
       });
     });
   },
-  // method for getting all users
+  // method for getting all payment types
   getAll: () => {
     return new Promise( (resolve, reject) => {
       db.all(`SELECT * FROM payment_types`, (err, payment_types) => {
