@@ -19,5 +19,5 @@ You will need to run `$ npm install` in your terminal to install the following d
 ### Database:
   To instantiate a new database you will need to run `$ npm run db:reset` in your terminal.
 
-##### Populate Database:
+***_Populate Database:_***  
   To populate an instantiated database you will need to run `$ npm run db:populate` in your terminal.
