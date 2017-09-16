@@ -6,7 +6,7 @@ const { generateOrders } = require('../faker/orders');
 generateOrders()
 .then((orders) => {
   const db = new sqlite3.Database('db/bangazon.sqlite', (err) => {
-    console.log('Connected orders');
+    console.log(`Populating ${orders.length} orders...`);
     orders.forEach((order) => {
       db.run(`INSERT INTO orders VALUES(
         NULL,

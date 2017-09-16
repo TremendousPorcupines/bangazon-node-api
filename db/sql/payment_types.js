@@ -6,7 +6,7 @@ const { generatePaymentTypes } = require('../faker/payment_types');
 generatePaymentTypes()
 .then((payment_types) => {
   const db = new sqlite3.Database('db/bangazon.sqlite', (err) => {
-    console.log('Connected payment_types');
+    console.log(`Populating ${payment_types.length} payment types...`);
     payment_types.forEach((type) => {
       db.run(`INSERT INTO payment_types VALUES(
         NULL,

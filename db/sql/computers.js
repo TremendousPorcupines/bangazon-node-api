@@ -6,7 +6,7 @@ const { generateComputers } = require('../faker/computers');
 let computers = generateComputers();
 
 const db = new sqlite3.Database('db/bangazon.sqlite', (err) => {
-  console.log('Connected computers');
+  console.log(`Populating ${computers.length} computers...`);
   computers.forEach((computer) => {
     db.run(`INSERT INTO computers VALUES(
       NULL,
