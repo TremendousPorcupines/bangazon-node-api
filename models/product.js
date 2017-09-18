@@ -35,10 +35,11 @@ const Product = {
   edit: (product) => {
     return new Promise((resolve, reject) => {
       db.run(`UPDATE products SET
-        first_name = "${product.name}",
-        last_name = "${product.price}",
-        address = "${product.user_id}",
-        city = "${product.product_type_id}"`, 
+        name = "${product.name}",
+        price = "${product.price}",
+        user_id = "${product.user_id}",
+        product_type_id = "${product.product_type_id}"
+        WHERE product_id = '${product.product_id}'`, 
         (err) => {
           if(err) return reject(err);
           resolve();
