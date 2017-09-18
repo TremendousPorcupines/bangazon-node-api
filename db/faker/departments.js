@@ -11,20 +11,19 @@ for (let i = 0; i < empLen; i++){
   empArr.push(i+1)
 }
 
+const shuffle = (arr) => arr.sort(() => (Math.random() - 0.5));
+
 module.exports.generateDepartments = () => {
   let departments = [];
-  let shuffledEmpArr = empArr.slice(0, depLen).map();
-  console.log(shuffledEmpArr);
+  let sup_id = shuffle(empArr).slice(0, depLen);
 
   for (let i = 0; i < depLen; i++) {
-    let supervisor_id = null;
     let name = faker.name.jobArea();
-    let budget = faker.finance.amount();
+    let supervisor_id = sup_id[i];
 
     departments.push({
-      supervisor_id,
       name,
-      budget
+      supervisor_id
     });
   }
   return departments;

@@ -10,9 +10,8 @@ const db = new sqlite3.Database('db/bangazon.sqlite', (err) => {
   departments.forEach((department) => {
     db.run(`INSERT INTO departments VALUES(
       NULL,
-      "${department.supervisor_id}",
       "${department.name}",
-      "${department.budget}")`
+      "${department.supervisor_id}")`
     )
   })
 });
