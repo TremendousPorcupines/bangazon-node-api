@@ -37,7 +37,7 @@ const Department = {
     return new Promise((resolve, reject) => {
       db.run(`UPDATE departments SET
         name = "${department.name}",
-        last_name = "${department.supervisor_id}"
+        supervisor_id = "${department.supervisor_id}"
         WHERE department_id = ${department.department_id}`,
         (err) => {
           if(err) return reject(err);

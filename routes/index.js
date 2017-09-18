@@ -5,6 +5,7 @@ const router = Router();
 
 router.use( require('./users-route'));
 router.use( require('./products-route'));
+router.use( require('./departments-route'));
 
 router.get('/', (req, res) => {
   res.json({
@@ -16,7 +17,11 @@ router.get('/', (req, res) => {
     "getAllProducts": "/api/v1/products",
     "addProduct": "/api/v1/product/new",
     "editProduct": "/api/v1/product/edit",
-    "deleteProduct": "/app/v1/product/delete/:<product_id>"
+    "deleteProduct": "/app/v1/product/delete/:<product_id>",
+    "getDepartmentById": "/api/v1/department/:<department_id>",
+    "getAllDepartments": "/api/v1/departments",
+    "addDepartment": "/api/v1/department/new",
+    "editDepartment": "/api/v1/department/edit"
   });
 });
 
