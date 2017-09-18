@@ -71,5 +71,5 @@ db.serialize(function() {
   db.run('CREATE TABLE IF NOT EXISTS computers (computer_id INTEGER PRIMARY KEY, begin_service_date TEXT, end_service_date TEXT)');
 
   // create employees_computers table
-  db.run('CREATE TABLE IF NOT EXISTS employees_computers (employee_computer_id INTEGER PRIMARY KEY, employee_id INTEGER, computer_id INTEGER, FOREIGN KEY (employee_id) REFERENCES employees(employee_id), FOREIGN KEY (computer_id) REFERENCES computers(computer_id))');
+  db.run('CREATE TABLE IF NOT EXISTS employees_computers (employee_computer_id INTEGER PRIMARY KEY, start_date TEXT, end_date TEXT, employee_id INTEGER, computer_id INTEGER, FOREIGN KEY (employee_id) REFERENCES employees(employee_id), FOREIGN KEY (computer_id) REFERENCES computers(computer_id))');
 })
