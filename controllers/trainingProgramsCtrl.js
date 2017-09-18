@@ -30,7 +30,7 @@ module.exports.editTrainingProgram = ({body}, res, next) => {
   });
 };
 
-module.exports.editTrainingProgram = ({params}, res, next) => {
+module.exports.deleteTrainingProgram = ({params}, res, next) => {
   TrainingProgram.delete(training_program_id)
   .then((training_program) => {
     res.status(200).json(training_program);
