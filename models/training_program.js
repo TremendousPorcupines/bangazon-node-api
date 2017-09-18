@@ -48,7 +48,18 @@ const TrainingProgram = {
           resolve();
         });
     })
+  },
+
+  // method for deleting a specifed training program
+  delete: (product_id) => {
+    return new Promise( (resolve, reject) => {
+      db.get(`DELETE FROM products WHERE product_id = ${product_id}`, (err, product) => {
+        if (err) return reject(err);
+        resolve(product);
+      });
+    });
   }
+
 };
 
 module.exports = TrainingProgram;
