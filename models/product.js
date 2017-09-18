@@ -21,7 +21,31 @@ const Product = {
         resolve(products);
       });
     });
-  }
+  },
+    // method for adding a product
+    addOne: (product) => {
+      return new Promise((resolve, reject) => {
+        db.run(`INSERT INTO products VALUES(null, "${product.name}", "${product.price}", "${product.user_id}", "${product.product_type_id}")`, (err) => {
+          if(err) return reject(err);
+          resolve();
+        });
+      })
+    },
+    // method for updating a product's info
+    edit: (product) => {
+      return new Promise((resolve, reject) => {
+        db.run(`UPDATE products SET
+          first_name = "${product.name}",
+          last_name = "${product.price}",
+          address = "${product.user_id}",
+          city = "${product.product_type_id}"`, 
+          (err) => {
+            if(err) return reject(err);
+            resolve();
+          });
+      })
+    }
+  };
 
 };
 
