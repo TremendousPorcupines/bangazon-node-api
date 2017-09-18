@@ -21,8 +21,40 @@ const Product = {
         resolve(products);
       });
     });
+  },
+  // method for adding a product
+  addOne: (product) => {
+    return new Promise((resolve, reject) => {
+      db.run(`INSERT INTO products VALUES(null, "${product.name}", "${product.price}", "${product.user_id}", "${product.product_type_id}")`, (err) => {
+        if(err) return reject(err);
+        resolve();
+      });
+    })
+  },
+  // method for updating a product's info
+  edit: (product) => {
+    return new Promise((resolve, reject) => {
+      db.run(`UPDATE products SET
+        name = "${product.name}",
+        price = "${product.price}",
+        user_id = "${product.user_id}",
+        product_type_id = "${product.product_type_id}"
+        WHERE product_id = '${product.product_id}'`, 
+        (err) => {
+          if(err) return reject(err);
+          resolve();
+        });
+    })
+  },
+  // method for deleting a specifed product
+  delete: (product_id) => {
+    return new Promise( (resolve, reject) => {
+      db.get(`DELETE FROM products WHERE product_id = ${product_id}`, (err, product) => {
+        if (err) return reject(err);
+        resolve(product);
+      });
+    });
   }
-
 };
 
 module.exports = Product;
