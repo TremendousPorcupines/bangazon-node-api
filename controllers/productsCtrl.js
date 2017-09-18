@@ -29,3 +29,10 @@ module.exports.editProduct = ({body}, res, next) => {
     res.status(200).json(product);
   });
 };
+
+module.exports.deleteProduct = ({params: {product_id}}, res, next) => {
+  Product.delete(product_id)
+  .then((product) => {
+    res.status(200).json(product);
+  });
+};
