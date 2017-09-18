@@ -4,6 +4,7 @@ const {Router} = require('express');
 const router = Router();
 
 router.use( require('./users-route'));
+router.use(require('./orders-route'));
 router.use( require('./products-route'));
 
 router.get('/', (req, res) => {
@@ -16,7 +17,12 @@ router.get('/', (req, res) => {
     "getAllProducts": "/api/v1/products",
     "addProduct": "/api/v1/product/new",
     "editProduct": "/api/v1/product/edit",
-    "deleteProduct": "/app/v1/product/delete/:<product_id>"
+    "deleteProduct": "/app/v1/product/delete/:<product_id>",
+    "getOrderById": "/api/v1/order/:<order_id>",
+    "getAllOrders": "/api/v1/orders",
+    "addOrder": "/api/v1/order/new",
+    "editOrder": "/api/v1/order/edit",
+    "deleteOrder": "/api/v1/order/delete/:<order_id>"
   });
 });
 

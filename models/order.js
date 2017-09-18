@@ -21,8 +21,38 @@ const Order = {
         resolve(orders);
       });
     });
+  },
+  // method for adding an order
+  addOne: (order) => {
+    return new Promise((resolve, reject) => {
+      db.run(`INSERT INTO orders VALUES(null, "${order.user_id}", "${order.payment_type_id}")`, (err) => {
+        if(err) return reject(err);
+        resolve();
+      });
+    })
+  },
+  // method for updating a order's info
+  edit: (order) => {
+    return new Promise((resolve, reject) => {
+      db.run(`UPDATE orders SET
+        user_id = "${order.user_id}",
+        payment_type_id = "${order.payment_type_id}"
+        WHERE order_id = '${order.order_id}'`, 
+        (err) => {
+          if(err) return reject(err);
+          resolve();
+        });
+    })
+  },
+  // method for deleting a specifed order
+  delete: (order_id) => {
+    return new Promise( (resolve, reject) => {
+      db.get(`DELETE FROM orders WHERE order_id = ${order_id}`, (err, order) => {
+        if (err) return reject(err);
+        resolve(order);
+      });
+    });
   }
-
 };
 
 module.exports = Order;
