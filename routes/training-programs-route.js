@@ -2,7 +2,7 @@
 
 const {Router} = require('express');
 const router = Router();
-const {getOneTrainingProgram, getAllTrainingPrograms, addNewTrainingProgram, editTrainingProgram} = require('../controllers/trainingProgramsCtrl');
+const {getOneTrainingProgram, getAllTrainingPrograms, addNewTrainingProgram, editTrainingProgram, deleteTrainingProgram} = require('../controllers/trainingProgramsCtrl');
 
 router.get('/training_program/:training_program_id', getOneTrainingProgram);
 router.get('/training_programs', getAllTrainingPrograms);
