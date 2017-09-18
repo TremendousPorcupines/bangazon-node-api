@@ -14,7 +14,8 @@ router.get('/', (req, res) => {
     "getProductById": "/api/v1/product/:<product_id>",
     "getAllProducts": "/api/v1/products",
     "addProduct": "/api/v1/product/new",
-    "editProduct": "/api/v1/product/edit"
+    "editProduct": "/api/v1/product/edit",
+    "deleteProduct": "/app/v1/product/delete/:<product_id>"
   });
 });
 
