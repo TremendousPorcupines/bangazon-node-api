@@ -6,7 +6,7 @@ const { generateTrainingPrograms } = require('../faker/training_programs');
 let training_programs = generateTrainingPrograms();
 
 const db = new sqlite3.Database('db/bangazon.sqlite', (err) => {
-  console.log('Connected training_programs');
+  console.log(`Populating ${training_programs.length} training programs...`);
   training_programs.forEach((program) => {
     db.run(`INSERT INTO training_programs VALUES(
       NULL,
