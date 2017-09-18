@@ -49,7 +49,7 @@ const Product = {
   // method for deleting a specifed product
   delete: (product_id) => {
     return new Promise( (resolve, reject) => {
-      db.get(`DELETE * FROM products WHERE product_id = ${product_id}`, (err, product) => {
+      db.get(`DELETE FROM products WHERE product_id = ${product_id}`, (err, product) => {
         if (err) return reject(err);
         resolve(product);
       });
