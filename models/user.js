@@ -34,10 +34,20 @@ const User = {
   // method for updating a user's info
   edit: (user) => {
     return new Promise((resolve, reject) => {
-      db.run(`UPDATE users ('${user.user_id}', '${user.firstName}', '${user.lastName}', '${user.address}', '${user.city}', '${user.zipcode}', '${user.phone}', '${user.dateCreated}', '${user.lastLogin}')`), (err, user) => {
-        if(err) return reject(err);
-        resolve(users);
-      };
+      db.run(`UPDATE users SET
+        first_name = "${user.firstName}",
+        last_name = "${user.lastName}",
+        address = "${user.address}",
+        city = "${user.city}",
+        zip_code = "${user.zipcode}",
+        phone = "${user.phone}",
+        date_created = "${user.dateCreated}",
+        last_login ="${user.lastLogin}"
+        WHERE user_id = ${user.user_id}`, 
+        (err) => {
+          if(err) return reject(err);
+          resolve();
+        });
     })
   }
 };
