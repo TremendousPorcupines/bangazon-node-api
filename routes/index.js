@@ -7,6 +7,7 @@ router.use( require('./users-route'));
 router.use(require('./orders-route'));
 router.use( require('./products-route'));
 router.use( require('./departments-route'));
+router.use( require('./training-programs-route'));
 
 router.get('/', (req, res) => {
   res.json({
