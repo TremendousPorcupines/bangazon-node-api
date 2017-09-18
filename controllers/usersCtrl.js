@@ -18,8 +18,8 @@ module.exports.getAllUsers = (req, res, next) => {
 
 module.exports.addNewUser = ({body}, res, next) => {
   User.addOne(body)
-  .then((user) => {
-    res.status(200).json(user);
+  .then(() => {
+    res.status(200).end();
   });
 };
 
