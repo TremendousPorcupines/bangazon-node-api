@@ -14,7 +14,6 @@ module.exports.generateOrders = () => {
       let types = data[1];
       let orders = [];
       let count = 0;
-      let total = 0;
 
       for (let i = 0; i < 200; i++) {
         let user_id;
