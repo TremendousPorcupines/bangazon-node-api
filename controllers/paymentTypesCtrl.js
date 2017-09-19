@@ -31,7 +31,7 @@ module.exports.editPaymentType = ({body}, res, next) => {
 };
 
 module.exports.deletePaymentType = ({params: {payment_type_id}}, res, next) => {
-  PaymentType.delete(payment_type)
+  PaymentType.delete(payment_type_id)
   .then((payment_type) => {
     res.status(200).json(payment_type);
   });

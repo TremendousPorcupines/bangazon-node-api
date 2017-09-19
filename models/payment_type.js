@@ -21,11 +21,11 @@ const Payment_Type = {
         resolve(payment_types);
       });
     });
-  }
+  },
     // method for adding a payment type
   addOne: (payment_type) => {
     return new Promise((resolve, reject) => {
-      db.run(`INSERT INTO payment_types VALUES(null, "${payment_type.name}", "${payment_type.accountNumber}", "${payment_type.user_id}")`, (err) => {
+      db.run(`INSERT INTO payment_types VALUES(null, "${payment_type.name}", "${payment_type.account_number}", "${payment_type.user_id}")`, (err) => {
         if(err) return reject(err);
         resolve();
       });
@@ -36,7 +36,7 @@ const Payment_Type = {
     return new Promise((resolve, reject) => {
       db.run(`UPDATE payment_types SET
         name = "${payment_type.name}",
-        accountNumber = "${payment_type.accountNumber}",
+        account_number = "${payment_type.account_number}",
         user_id = "${payment_type.user_id}"
         WHERE payment_type_id = '${payment_type.payment_type_id}'`,
         (err) => {
@@ -54,7 +54,6 @@ const Payment_Type = {
       });
     });
   }
-};
 
 };
 
