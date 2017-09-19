@@ -3,7 +3,7 @@
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('./db/bangazon.sqlite');
 
-const TrainingProgram = {
+const Training_Program = {
   // method for getting one training program
   getOne: (training_program_id) => {
     return new Promise( (resolve, reject) => {
@@ -62,4 +62,4 @@ const TrainingProgram = {
 
 };
 
-module.exports = TrainingProgram;
+module.exports = Training_Program;
