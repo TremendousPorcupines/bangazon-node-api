@@ -16,10 +16,18 @@ module.exports.getAllOrders = (req, res, next) => {
   });
 };
 
-module.exports.addNewOrder = ({body}, res, next) => {
-  Order.addOne(body)
-  .then(() => {
-    res.status(200).end();
+module.exports.postToOrder = ({body}, res, next) => {
+  Order.isOpenOrder(body.user_id)
+  .then( (order) => {
+    if (order) return Order.addToOpenOrder(order.order_id, body.product_id)
+    else Order.addOne(body).then( (lastID) => { return Order.addToOpenOrder(lastID, body.product_id)})
+  })
+  .then((lastID) => {
+    res.status(200).end("Product added to order"); //Experimenting with what to send back, if anything. Discuss.
+  })
+  .catch( (err) => {
+    console.log('error on order post', err);
+    next(err);
   });
 };
 
