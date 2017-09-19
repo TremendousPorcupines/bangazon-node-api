@@ -9,8 +9,8 @@ const routes = require('./routes/');
 let app = express();
 
 //middleware and routing
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use('/api/v1/', routes);
 
@@ -22,7 +22,7 @@ app.use(function(req, res, next) {
 });
 
 app.use((err,req,res,next) => {
-    console.log("error", err);
+    console.log("error", err, "route", req.url);
     res.status(err.status || 500);
     res.json({
       message: err.message,
