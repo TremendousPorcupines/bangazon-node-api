@@ -23,13 +23,36 @@ const Order = {
     });
   },
   // method for adding an order
+  // accepts a req.body as oder param:
+  // {
+  //   "product_id": INT,
+  //   "user_id": INT
+  // }
   addOne: (order) => {
     return new Promise((resolve, reject) => {
-      db.run(`INSERT INTO orders VALUES(null, "${order.user_id}", "${order.payment_type_id}")`, (err) => {
+      db.run(`INSERT INTO orders VALUES(null, "${order.user_id}", null)`, function (err) {
         if(err) return reject(err);
-        resolve();
+        resolve(this.lastID);
       });
     })
+  },
+  // method for adding line item to orders_products join table
+  addToOpenOrder: (order_id, product_id) => {
+    return new Promise((resolve, reject) => {
+      db.run(`INSERT INTO orders_products values (null, ${order_id}, ${product_id})`, function(err) {
+        if (err) return reject(err);
+        resolve(this.lastID);
+      });
+    });
+  },
+  // check if a user already has an open order
+  isOpenOrder: (user_id) => {
+    return new Promise( (resolve, reject) => {
+      db.all(`SELECT * FROM orders WHERE user_id = ${user_id} AND payment_type_id is NULL`, (err, order) => {
+        if (err) return reject(err);
+        resolve(order.length ? order[0] : null);
+      });
+    });
   },
   // method for updating a order's info
   edit: (order) => {
