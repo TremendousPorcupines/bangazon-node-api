@@ -7,6 +7,7 @@ router.use( require('./users-route'));
 router.use(require('./orders-route'));
 router.use( require('./products-route'));
 router.use( require('./departments-route'));
+router.use( require('./payment-types-route'));
 
 router.get('/', (req, res) => {
   res.json({
@@ -27,7 +28,12 @@ router.get('/', (req, res) => {
     "getAllOrders": "/api/v1/orders",
     "addOrder": "/api/v1/order/new",
     "editOrder": "/api/v1/order/edit",
-    "deleteOrder": "/api/v1/order/delete/:<order_id>"
+    "deleteOrder": "/api/v1/order/delete/:<order_id>",
+    "getPaymentTypeById": "/api/v1/payment_type/:<payment_type_id>",
+    "getAllPaymentTypes": "/api/v1/payment_types",
+    "addPaymentType": "/api/v1/payment_type/new",
+    "editPaymentType": "/api/v1/payment_type/edit",
+    "deletePaymentType": "/api/v1/payment_type/delete/:<payment_type_id>"
   });
 });
 
