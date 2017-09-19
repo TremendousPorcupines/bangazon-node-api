@@ -51,11 +51,11 @@ const TrainingProgram = {
   },
 
   // method for deleting a specifed training program
-  delete: (product_id) => {
+  delete: (training_program_id) => {
     return new Promise( (resolve, reject) => {
-      db.get(`DELETE FROM products WHERE product_id = ${product_id}`, (err, product) => {
+      db.get(`DELETE FROM training_programs WHERE training_program_id = ${training_program_id}`, (err, training_program) => {
         if (err) return reject(err);
-        resolve(product);
+        resolve(training_program);
       });
     });
   }
