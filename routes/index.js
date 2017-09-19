@@ -7,6 +7,7 @@ router.use( require('./users-route'));
 router.use(require('./orders-route'));
 router.use( require('./products-route'));
 router.use( require('./departments-route'));
+router.use( require('./product-types-route'));
 
 router.get('/', (req, res) => {
   res.json({
@@ -27,7 +28,12 @@ router.get('/', (req, res) => {
     "getAllOrders": "/api/v1/orders",
     "addOrder": "/api/v1/order/new",
     "editOrder": "/api/v1/order/edit",
-    "deleteOrder": "/api/v1/order/delete/:<order_id>"
+    "deleteOrder": "/api/v1/order/delete/:<order_id>",
+    "getProductTypeById": "/api/v1/product_type/:<product_type_id>",
+    "getAllProductTypes": "/api/v1/product_types",
+    "addProductType": "/api/v1/product_type/new",
+    "editProductType": "/api/v1/product_type/edit",
+    "deleteProductType": "/api/v1/product_type/delete/:<product_type_id>"
   });
 });
 
