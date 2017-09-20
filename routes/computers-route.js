@@ -2,7 +2,7 @@
 
 const {Router} = require('express');
 const router = Router();
-const {getOneComputer, getAllComputer, addNewComputer, editComputer, deleteComputer} = require('../controllers/computersCtrl');
+const {getOneComputer, getAllComputers, addNewComputer, editComputer, deleteComputer} = require('../controllers/computersCtrl');
 
 router.get('/computers/:computer_id', getOneComputer);
 router.get('/computers', getAllComputers);

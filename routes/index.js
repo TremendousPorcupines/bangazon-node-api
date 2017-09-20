@@ -48,10 +48,10 @@ router.get('/', (req, res) => {
     "editProductType": "/api/v1/product_type/edit",
     "deleteProductType": "/api/v1/product_type/delete/:<product_type_id>",
     "getComputerById": "/api/v1/computers/:<computer_id>",
-    "getAllComputerTypes": "/api/v1/computers",
-    "addComputerType": "/api/v1/computers/new",
-    "editComputerType": "/api/v1/computers/edit",
-    "deleteComputerType": "/api/v1/computers/delete/:<computer_type_id>"
+    "getAllComputers": "/api/v1/computers",
+    "addComputers": "/api/v1/computers/new",
+    "editComputers": "/api/v1/computers/edit",
+    "deleteComputers": "/api/v1/computers/delete/:<computere_id>"
   });
 });
 
