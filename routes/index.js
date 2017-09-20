@@ -4,10 +4,13 @@ const {Router} = require('express');
 const router = Router();
 
 router.use( require('./users-route'));
-router.use(require('./orders-route'));
+router.use( require('./orders-route'));
 router.use( require('./products-route'));
 router.use( require('./departments-route'));
 router.use( require('./employees-route'));
+router.use( require('./training-programs-route'));
+router.use( require('./payment-types-route'));
+router.use( require('./product-types-route'));
 
 router.get('/', (req, res) => {
   res.json({
@@ -32,7 +35,22 @@ router.get('/', (req, res) => {
     "getEmployeeById": "/api/v1/employee/:<employee_id>",
     "getAllEmployees": "/api/v1/employees",
     "addEmployee": "/api/v1/employee/new",
-    "editEmployee": "/api/v1/employee/edit"
+    "editEmployee": "/api/v1/employee/edit",
+    "getTrainingProgramById": "/api/v1/training_program/:<training_program_id>",
+    "getAllTrainingProgram": "/api/v1/training_programs",
+    "addTrainingProgram": "/api/v1/training_program/new",
+    "editTrainingProgram": "/api/v1/training_program/edit",
+    "deleteTrainingProgram": "/api/v1/training_program/delete/:<training_program_id>",
+    "getPaymentTypeById": "/api/v1/payment_type/:<payment_type_id>",
+    "getAllPaymentTypes": "/api/v1/payment_types",
+    "addPaymentType": "/api/v1/payment_type/new",
+    "editPaymentType": "/api/v1/payment_type/edit",
+    "deletePaymentType": "/api/v1/payment_type/delete/:<payment_type_id>",
+    "getProductTypeById": "/api/v1/product_type/:<product_type_id>",
+    "getAllProductTypes": "/api/v1/product_types",
+    "addProductType": "/api/v1/product_type/new",
+    "editProductType": "/api/v1/product_type/edit",
+    "deleteProductType": "/api/v1/product_type/delete/:<product_type_id>"
   });
 });
 
