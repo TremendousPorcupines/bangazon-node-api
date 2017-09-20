@@ -8,6 +8,7 @@ router.use( require('./orders-route'));
 router.use( require('./products-route'));
 router.use( require('./departments-route'));
 router.use( require('./training-programs-route'));
+router.use( require('./payment-types-route'));
 
 router.get('/', (req, res) => {
   res.json({
@@ -33,7 +34,12 @@ router.get('/', (req, res) => {
     "getAllTrainingProgram": "/api/v1/training_programs",
     "addTrainingProgram": "/api/v1/training_program/new",
     "editTrainingProgram": "/api/v1/training_program/edit",
-    "deleteTrainingProgram": "/api/v1/training_program/delete/:<training_program_id>"
+    "deleteTrainingProgram": "/api/v1/training_program/delete/:<training_program_id>",
+    "getPaymentTypeById": "/api/v1/payment_type/:<payment_type_id>",
+    "getAllPaymentTypes": "/api/v1/payment_types",
+    "addPaymentType": "/api/v1/payment_type/new",
+    "editPaymentType": "/api/v1/payment_type/edit",
+    "deletePaymentType": "/api/v1/payment_type/delete/:<payment_type_id>"
   });
 });
 
