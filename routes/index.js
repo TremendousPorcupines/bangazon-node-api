@@ -4,9 +4,10 @@ const {Router} = require('express');
 const router = Router();
 
 router.use( require('./users-route'));
-router.use(require('./orders-route'));
+router.use( require('./orders-route'));
 router.use( require('./products-route'));
 router.use( require('./departments-route'));
+router.use( require('./training-programs-route'));
 
 router.get('/', (req, res) => {
   res.json({
@@ -27,7 +28,12 @@ router.get('/', (req, res) => {
     "getAllOrders": "/api/v1/orders",
     "addOrder": "/api/v1/order/new",
     "editOrder": "/api/v1/order/edit",
-    "deleteOrder": "/api/v1/order/delete/:<order_id>"
+    "deleteOrder": "/api/v1/order/delete/:<order_id>",
+    "getTrainingProgramById": "/api/v1/training_program/:<training_program_id>",
+    "getAllTrainingProgram": "/api/v1/training_programs",
+    "addTrainingProgram": "/api/v1/training_program/new",
+    "editTrainingProgram": "/api/v1/training_program/edit",
+    "deleteTrainingProgram": "/api/v1/training_program/delete/:<training_program_id>"
   });
 });
 
