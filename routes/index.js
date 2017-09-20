@@ -10,6 +10,7 @@ router.use( require('./departments-route'));
 router.use( require('./training-programs-route'));
 router.use( require('./payment-types-route'));
 router.use( require('./product-types-route'));
+router.use( require('./computers-route'));
 
 router.get('/', (req, res) => {
   res.json({
@@ -45,7 +46,12 @@ router.get('/', (req, res) => {
     "getAllProductTypes": "/api/v1/product_types",
     "addProductType": "/api/v1/product_type/new",
     "editProductType": "/api/v1/product_type/edit",
-    "deleteProductType": "/api/v1/product_type/delete/:<product_type_id>"
+    "deleteProductType": "/api/v1/product_type/delete/:<product_type_id>",
+    "getComputerById": "/api/v1/computers/:<computer_id>",
+    "getAllComputers": "/api/v1/computers",
+    "addComputers": "/api/v1/computers/new",
+    "editComputers": "/api/v1/computers/edit",
+    "deleteComputers": "/api/v1/computers/delete/:<computere_id>"
   });
 });
 
