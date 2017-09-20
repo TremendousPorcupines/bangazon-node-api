@@ -4,9 +4,9 @@ const {Router} = require('express');
 const router = Router();
 const {getOneEmployee, getAllEmployees, addNewEmployee, editEmployee} = require('../controllers/employeesCtrl');
 
-router.get('/employee/:employee_id', getOneEmployee);
+router.get('/employees/:employee_id', getOneEmployee);
 router.get('/employees', getAllEmployees);
-router.post('/employee/new', addNewEmployee);
-router.put('/employee/edit', editEmployee);
+router.post('/employees/new', addNewEmployee);
+router.put('/employees/edit', editEmployee);
 
 module.exports = router;
