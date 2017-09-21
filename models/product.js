@@ -14,7 +14,7 @@ const Product = {
     });
   },
   // method for getting all produts by order
-  getAllByOrderId: (order_id) => {
+  getProductsByOrderId: (order_id) => {
     return new Promise( (resolve, reject) => {
       db.all(`SELECT p.* FROM products p
       JOIN orders_products i ON i.product_id = p.product_id

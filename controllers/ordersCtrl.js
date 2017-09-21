@@ -6,7 +6,7 @@ const Product = require('../models/product')
 module.exports.getOneOrder = ({params: {order_id}}, res, next) => {
   Order.getOne(order_id)
   .then((order) => {
-    Product.getAllByOrderId(order_id)
+    Product.getProductsByOrderId(order_id)
     .then((products) => {
       let order_obj = order;
       order_obj.products = products;
