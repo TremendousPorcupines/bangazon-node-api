@@ -13,6 +13,18 @@ const Product = {
       });
     });
   },
+  // method for getting all produts by order
+  getAllByOrderId: (order_id) => {
+    return new Promise( (resolve, reject) => {
+      db.all(`SELECT p.* FROM products p
+      JOIN orders_products i ON i.product_id = p.product_id
+      JOIN orders o ON o.order_id = i.order_id
+      WHERE o.order_id = ${order_id}`, (err, products) => {
+        if (err) return reject(err);
+        resolve(products)
+      })
+    })
+  },
   // method for getting all products
   getAll: () => {
     return new Promise( (resolve, reject) => {
@@ -39,7 +51,7 @@ const Product = {
         price = "${product.price}",
         user_id = "${product.user_id}",
         product_type_id = "${product.product_type_id}"
-        WHERE product_id = '${product.product_id}'`, 
+        WHERE product_id = '${product.product_id}'`,
         (err) => {
           if(err) return reject(err);
           resolve();
