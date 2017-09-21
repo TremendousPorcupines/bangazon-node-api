@@ -1,11 +1,14 @@
 'use strict';
 
 const faker = require('faker');
+const {db} = require('../db-table-sizes.json')
+
+let usrLen = db.find(x => x.users).users;
 
 module.exports.generateUsers = () => {
   let users = [];
 
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < usrLen; i++) {
     let firstName = faker.name.firstName();
     let lastName = faker.name.lastName();
     let address = faker.address.streetAddress();
