@@ -1,11 +1,17 @@
 'use strict';
 
 const Order = require('../models/order');
+const Product = require('../models/product')
 
 module.exports.getOneOrder = ({params: {order_id}}, res, next) => {
   Order.getOne(order_id)
   .then((order) => {
-    res.status(200).json(order);
+    Product.getAllByOrderId(order_id)
+    .then((products) => {
+      let order_obj = order;
+      order_obj.products = products;
+      res.status(200).json(order);
+    })
   });
 };
 
