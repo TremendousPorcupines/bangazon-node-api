@@ -60,7 +60,7 @@ const Order = {
       db.run(`UPDATE orders SET
         user_id = "${order.user_id}",
         payment_type_id = "${order.payment_type_id}"
-        WHERE order_id = '${order.order_id}'`, 
+        WHERE order_id = '${order.order_id}'`,
         (err) => {
           if(err) return reject(err);
           resolve();
