@@ -14,10 +14,10 @@ router.use( require('./computers-route'));
 
 router.get('/', (req, res) => {
   res.json({
-    "getUserById": "/api/v1/user/:<user_id>",
+    "getUserById": "/api/v1/users/:<user_id>",
     "getAllUsers": "/api/v1/users",
-    "addUser": "/api/v1/user/new",
-    "editUser": "/api/v1/user/edit",
+    "addUser": "/api/v1/users/new",
+    "editUser": "/api/v1/users/edit",
     "getProductById": "/api/v1/product/:<product_id>",
     "getAllProducts": "/api/v1/products",
     "addProduct": "/api/v1/product/new",
