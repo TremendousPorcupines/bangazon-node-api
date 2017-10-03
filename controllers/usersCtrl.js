@@ -10,7 +10,7 @@ module.exports.getOneUser = ({params: {user_id}}, res, next) => {
 };
 
 module.exports.getAllUsers = (req, res, next) => {
-  User.getAll()
+  (req.query.active === 'false' ? User.getNoOrders() : User.getAll())
   .then((users) => {
     res.status(200).json(users);
   });

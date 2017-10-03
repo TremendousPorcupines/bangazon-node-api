@@ -13,12 +13,26 @@ const User = {
       });
     });
   },
+  // method for getting all users with no orders
+  getNoOrders: () => {
+    return new Promise( (resolve, reject) => {
+      db.all(`SELECT u.* FROM users u
+      LEFT JOIN orders o
+      ON u.user_id = o.user_id
+      WHERE o.user_id IS NULL`, (err, users) => {
+        if (err) return reject(err);
+        console.log('USERS >>>', users)
+        resolve(users)
+      });
+    });
+  },
   // method for getting all users
   getAll: () => {
     return new Promise( (resolve, reject) => {
+      console.log('INSIDE getAll()')
       db.all(`SELECT * FROM users`, (err, users) => {
         if(err) return reject(err);
-        resolve(users); 
+        resolve(users);
       });
     });
   },
@@ -43,7 +57,7 @@ const User = {
         phone = "${user.phone}",
         date_created = "${user.dateCreated}",
         last_login ="${user.lastLogin}"
-        WHERE user_id = ${user.user_id}`, 
+        WHERE user_id = ${user.user_id}`,
         (err) => {
           if(err) return reject(err);
           resolve();
