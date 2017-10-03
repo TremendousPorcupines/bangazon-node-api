@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
     "getAllProducts": "/api/v1/products",
     "addProduct": "/api/v1/product/new",
     "editProduct": "/api/v1/product/edit",
-    "deleteProduct": "/app/v1/product/delete/:<product_id>",
+    "deleteProduct": "/api/v1/product/delete/:<product_id>",
     "getDepartmentById": "/api/v1/departments/:<department_id>",
     "getAllDepartments": "/api/v1/departments",
     "addDepartment": "/api/v1/departments/new",
@@ -51,7 +51,7 @@ router.get('/', (req, res) => {
     "getAllComputers": "/api/v1/computers",
     "addComputers": "/api/v1/computers/new",
     "editComputers": "/api/v1/computers/edit",
-    "deleteComputers": "/api/v1/computers/delete/:<computere_id>"
+    "deleteComputers": "/api/v1/computers/delete/:<computer_id>"
   });
 });
 
