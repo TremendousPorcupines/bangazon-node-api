@@ -2,7 +2,7 @@
 
 const {Router} = require('express');
 const router = Router();
-const {getOneUser, getAllUsers, addNewUser, editUser} = require('../controllers/usersCtrl');
+const {getOneUser, getAllUsersNoOrders, getAllUsers, addNewUser, editUser} = require('../controllers/usersCtrl');
 
 router.get('/users/:user_id', getOneUser);
 router.get('/users', getAllUsers);

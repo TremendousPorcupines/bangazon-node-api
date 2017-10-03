@@ -15,6 +15,7 @@ router.use( require('./computers-route'));
 router.get('/', (req, res) => {
   res.json({
     "getUserById": "/api/v1/users/:<user_id>",
+    "getUsersWithNoOrders": "/api/v1/users/?active=false",
     "getAllUsers": "/api/v1/users",
     "addUser": "/api/v1/users/new",
     "editUser": "/api/v1/users/edit",
